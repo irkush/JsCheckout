@@ -153,6 +153,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angularPage\angularTest.js" />
     <Content Include="Scripts\ember-1.2.0.debug.js" />
     <Content Include="Scripts\ember-1.2.0.js" />
     <Content Include="Scripts\ember-1.2.0.min.js" />
@@ -436,6 +437,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Basic\Index.cshtml" />
     <Content Include="Views\Basic\IndexPaymentSelect.cshtml" />
+    <Content Include="Views\Angular\Index.cshtml" />
     <Content Include="Views\Ember\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
