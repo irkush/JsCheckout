@@ -1,0 +1,1 @@
+﻿window.EmberCheckout = Ember.Application.create();
