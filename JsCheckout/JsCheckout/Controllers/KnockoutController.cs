@@ -9,5 +9,9 @@ namespace JsCheckout.Controllers
             return View();
         }
 
+        public ActionResult IndexPaymentSelect()
+        {
+            return View();
+        }
     }
 }

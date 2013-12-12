@@ -18,6 +18,12 @@ namespace JsCheckout
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Basic", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Knockout",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Knockout", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }
