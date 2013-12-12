@@ -25,14 +25,15 @@
             </section>
         </script>*@
 
-        <script src="/Scripts/jquery-1.9.1.js"></script>
+        <script src="/Scripts/jquery-2.0.3.js"></script>
         <script src="/Scripts/handlebars-1.1.2.js"></script>
         <script src="/Scripts/ember-1.2.0.debug.js"></script>
-        <script src="/Scripts/ember-data-1.0.0-beta3.debug.js"></script>
+        <script src="/Scripts/ember-data.js"></script>
 
         <script src="/Scripts/ember-application.js"></script>
         <script src="/Scripts/ember-router.js"></script>
         <script src="/Scripts/models/ember-checkout.js"></script>
+        <script src="/Scripts/controllers/checkouts_controller.js"></script>
         
         <script type="text/x-handlebars" data-template-name="checkouts">
 
@@ -77,6 +78,10 @@
                         <button class="btn btn-primary">OK</button>
                     </div>
                 </div>
+@*                <div class="row">
+                    <h3>Input test</h3>
+                    {{input type="text" id="new-orderrow" placeholder="..." value=newOrderRow action="createOrderRow"}}
+                </div>*@
             </div>
         </script>
     </body>
