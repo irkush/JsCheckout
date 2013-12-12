@@ -5,28 +5,52 @@ checkoutApp.controller('OrderRowController', function ($scope) {
     $scope.rows = [
         {
             'name': 'test',
-            'amount': '2',
-            'cost': '300',
-            'vat': '25 %',
-            'total': '1000 SEKsdd'
+            'amount': 2,
+            'cost': 300,
+            'vat': 25,
+            'total': 1000
         },
          {
-             'name': 'test',
-             'amount': '2',
-             'cost': '300 SEK',
-             'vat': '25 %',
-             'total': '1000 SEKsdd'
+             'name': 'En liten låda',
+             'amount': 2,
+             'cost': 300,
+             'vat': 25,
+             'total': 1000
          }
     ];
-    $scope.change = function (row) {
-        console.log($scope.amount);
-        row.amount = $scope.amount;
-        row.total = row.cost * row.amount;
-        console.log(row);
-    };
+
+    $scope.stepTwo = false;
     
     $scope.total = function (row) {
-        console.log(row.amount);
-        return (row.amount * row.cost) + 'SEK';
-    };
+        row.total = row.cost * row.amount;
+        return (row.amount * row.cost);
+    }
+
+    $scope.allTotals = function () {
+        var k = 0;
+        for (var i = 0; i < $scope.rows.length; i++)
+        {
+            k += $scope.rows[i].total;
+        }
+        return k;
+    }
+    $scope.newRow = function () {
+        console.log('test');
+        $scope.rows.push({
+            'name': 'test',
+            'amount': 2,
+            'cost': 300,
+            'vat': 25,
+            'total': 1000
+        });
+    }
+
+    $scope.nextStep = function () {
+        $scope.stepTwo = true;
+    }
+
+    $scope.removeRow = function (idx) {
+        var rowToRemove = $scope.rows[idx];
+        $scope.rows.splice(idx, 1);
+    }
 });

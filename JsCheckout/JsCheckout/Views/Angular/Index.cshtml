@@ -10,7 +10,7 @@
         <script type="text/javascript" src="@Url.Content("~/Scripts/angularPage/angularTest.js")"></script>
     </head>
     <body ng-controller="OrderRowController">
-        <div class="container">
+        <div class="container" ng-show="!stepTwo">
             <div class="row">
                 <div class="col-md-12">
                     <table class="table">
@@ -23,21 +23,21 @@
                         </tr>
                         
                         <tr ng-repeat="row in rows">
-                            <td>{{row.name}}</td>
+                            <td><input type="text" ng-model="row.name" /></td>
                             <td><input type="text" ng-model="row.amount" /></td>
                             <td>{{row.cost}} SEK</td>
                             <td>{{row.vat}} %</td>
-                            <td><input type="text" value="{{total(row)}}"/></td>
-                             <td ng-show="!$last"><button class="btn btn-danger btn-sm">-</button></td>
-                            <td ng-show="$last"><button class="btn btn-info btn-sm">+</button></td>
+                            <td>{{total(row)+ ' SEK'}}</td>
+                            <td ng-show="!$last"><button class="btn btn-danger btn-sm" ng-click="removeRow($index)">-</button></td>
+                            <td ng-show="$last"><button class="btn btn-info btn-sm" ng-click="newRow()">+</button></td>
                         </tr>
+
                          <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>Totalt:</td>
-                            <td>{{allTotals()}}</td>
-                            <td></td>
+                            <td>{{allTotals()+ ' SEK'}}</td>
                         </tr>
                     </table>
                 </div>
@@ -46,9 +46,89 @@
                 <div class="col-md-10"></div>
                 <div class="col-md-2">
                     <button class="btn btn-danger">Cancel</button>
-                    <button class="btn btn-primary">OK</button>
+                    <button class="btn btn-primary" ng-click="nextStep()">OK</button>
                 </div>
             </div>
         </div>
+
+        
+    <!-- page two -->
+        <div>
+        <div class="container" ng-show="stepTwo">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>Beskrivning</td>
+                            <td>Antal</td>
+                            <td>Kostnad</td>
+                            <td>Moms</td>
+                            <td>Totalt</td>
+                        </tr>
+                        
+                        <tr ng-repeat="row in rows">
+                            <td>{{row.name}}</td>
+                            <td>{{row.amount}}</td>
+                            <td>{{row.cost}} SEK</td>
+                            <td>{{row.vat}} %</td>
+                            <td>{{total(row)+ ' SEK'}}</td>
+                        </tr>
+
+                         <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Totalt:</td>
+                            <td>{{allTotals()+ ' SEK'}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-default" style="height: 250px">
+                        <div class="panel-body">
+                            faktura
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default" style="height: 250px">
+                        <div class="panel-body">
+                            delbetala
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default" style="height: 250px">
+                        <div class="panel-body">
+                            kort
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default" style="height: 250px">
+                        <div class="panel-body">
+                            direktbank
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="height: 250px">
+                        <div class="panel-body">
+                            Här kan man injecta saker som gör att man kan speca allt som behövs för en betalning.
+                            
+                            T.ex personnummer eller annat.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </body>
+
+
 </html>
