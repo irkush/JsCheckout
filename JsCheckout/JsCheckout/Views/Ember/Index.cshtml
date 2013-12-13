@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>title</title>
+        <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet"/>
+    </head>
+    <body>
+@*        <script type="text/x-handlebars" data-template-name="checkouts">
+            <section id="checkoutapp">
+                <section id="main">
+                    <ul id="checkout-list">
+                        {{#each}}
+                        <li>
+                            {{beskrivning}}
+                            {{antal}}
+                            {{kostnad}}
+                            {{moms}}
+                            {{total}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </section>
+            </section>
+        </script>*@
+
+        <script src="/Scripts/jquery-2.0.3.js"></script>
+        <script src="/Scripts/handlebars-1.1.2.js"></script>
+        <script src="/Scripts/ember-1.2.0.debug.js"></script>
+        <script src="/Scripts/ember-data.js"></script>
+
+        <script src="/Scripts/ember-application.js"></script>
+        <script src="/Scripts/ember-router.js"></script>
+        <script src="/Scripts/models/ember-checkout.js"></script>
+        <script src="/Scripts/controllers/checkouts_controller.js"></script>
+        
+        <script type="text/x-handlebars" data-template-name="checkouts">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    
+                        <table class="table">
+                                <tr>
+                                    <td>Beskrivning</td>
+                                    <td>Antal</td>
+                                    <td>Kostnad</td>
+                                    <td>Moms</td>
+                                    <td>Totalt</td>
+                                </tr>
+                                {{#each}}
+                                <tr>
+                                    <td>{{beskrivning}}</td>
+                                    <td>{{antal}}</td>
+                                    <td>{{kostnad}} SEK</td>
+                                    <td>{{moms}}%</td>
+                                    <td>{{totalt}}</td>
+                                    <td><button class="btn btn-danger btn-sm">-</button></td>
+                                </tr>
+                                {{/each}}
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Totalt:</td>
+                                    <td>0</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                    
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger">Cancel</button>
+                        <button class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+@*                <div class="row">
+                    <h3>Input test</h3>
+                    {{input type="text" id="new-orderrow" placeholder="..." value=newOrderRow action="createOrderRow"}}
+                </div>*@
+            </div>
+        </script>
+    </body>
+</html>
