@@ -23,11 +23,11 @@
                         </tr>
                         
                         <tr ng-repeat="row in rows">
-                            <td><input type="text" ng-model="row.name" /></td>
+                            <td><input type="text" ng-model="row.name" /></td>s
                             <td><input type="text" ng-model="row.amount" /></td>
-                            <td>{{row.cost}} SEK</td>
+                            <td><input type="text" ng-model="row.cost"/> SEK</td>
                             <td>{{row.vat}} %</td>
-                            <td>{{total(row)+ ' SEK'}}</td>
+                            <td>{{total(row) + ' SEK'}}</td>
                             <td ng-show="!$last"><button class="btn btn-danger btn-sm" ng-click="removeRow($index)">-</button></td>
                             <td ng-show="$last"><button class="btn btn-info btn-sm" ng-click="newRow()">+</button></td>
                         </tr>
