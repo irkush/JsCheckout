@@ -7,24 +7,6 @@
         <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet"/>
     </head>
     <body>
-@*        <script type="text/x-handlebars" data-template-name="checkouts">
-            <section id="checkoutapp">
-                <section id="main">
-                    <ul id="checkout-list">
-                        {{#each}}
-                        <li>
-                            {{beskrivning}}
-                            {{antal}}
-                            {{kostnad}}
-                            {{moms}}
-                            {{total}}
-                        </li>
-                        {{/each}}
-                    </ul>
-                </section>
-            </section>
-        </script>*@
-
         <script src="/Scripts/jquery-2.0.3.js"></script>
         <script src="/Scripts/handlebars-1.1.2.js"></script>
         <script src="/Scripts/ember-1.2.0.debug.js"></script>
@@ -36,39 +18,40 @@
         <script src="/Scripts/controllers/checkouts_controller.js"></script>
         
         <script type="text/x-handlebars" data-template-name="checkouts">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                    
                         <table class="table">
-                                <tr>
-                                    <td>Beskrivning</td>
-                                    <td>Antal</td>
-                                    <td>Kostnad</td>
-                                    <td>Moms</td>
-                                    <td>Totalt</td>
-                                </tr>
-                                {{#each}}
-                                <tr>
-                                    <td>{{beskrivning}}</td>
-                                    <td>{{antal}}</td>
-                                    <td>{{kostnad}} SEK</td>
-                                    <td>{{moms}}%</td>
-                                    <td>{{totalt}}</td>
-                                    <td><button class="btn btn-danger btn-sm">-</button></td>
-                                </tr>
-                                {{/each}}
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Totalt:</td>
-                                    <td>{{totaltotal}}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                    
+                            <tr>
+                                <td>Beskrivning</td>
+                                <td>Antal</td>
+                                <td>Kostnad</td>
+                                <td>Moms</td>
+                                <td>Totalt</td>
+                            </tr>
+                            {{#each item in content}}
+                            <tr>
+                                <td>{{item.beskrivning}}</td>
+                                <td>{{item.antal}}</td>
+                                <td>{{item.kostnad}} SEK</td>
+                                <td>{{item.moms}}%</td>
+                                <td>{{item.totalt}}</td>
+                                <td><button class="btn btn-danger btn-sm">-</button>
+                                {{#if item.last}}
+                                <button class="btn btn-info btn-sm">+</button>
+                                {{/if}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Totalt:</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <div class="row">

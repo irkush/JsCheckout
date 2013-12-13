@@ -18,11 +18,6 @@
 
             // Save the new model
             checkout.save();
-        },
-        
-        totaltotal: function () {
-            var remaining = this.get('kostnad');
-            return remaining;
-        }.property('@each.totalt')
+        }
     }
 });

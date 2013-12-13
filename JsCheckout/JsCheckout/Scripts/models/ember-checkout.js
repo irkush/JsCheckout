@@ -3,7 +3,12 @@
     antal: DS.attr('float'),
     kostnad: DS.attr('float'),
     moms: DS.attr('integer'),
-    totalt: DS.attr('float')
+    
+    totalt: function() {
+        return this.get('kostnad') * this.get('antal');
+    }.property('kostnad', 'antal'),
+    
+    last: DS.attr('boolean')
 });
 
 Checkouts.Checkout.FIXTURES = [
@@ -13,7 +18,7 @@ Checkouts.Checkout.FIXTURES = [
      antal: 10.0,
      kostnad: 100,
      moms: 25,
-     totalt: 10 * 100
+     last: false
  },
  {
      id: 2,
@@ -21,7 +26,7 @@ Checkouts.Checkout.FIXTURES = [
      antal: 20.0,
      kostnad: 200,
      moms: 25,
-     totalt: 20 * 200
+     last: false
  },
  {
      id: 3,
@@ -29,6 +34,7 @@ Checkouts.Checkout.FIXTURES = [
      antal: 30.0,
      kostnad: 300,
      moms: 25,
-     totalt: 30 * 300
+     last: true
  }
 ];
+
